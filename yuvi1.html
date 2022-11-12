@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		Image drag and drop
+	</title>
+	
+	<link href =
+"https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+			rel = "stylesheet">
+	
+	<script src =
+"https://code.jquery.com/jquery-1.10.2.js">
+	</script>
+	
+	<script src =
+"https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+	</script>
+		
+	<style>
+
+		body {
+			text-align: center;
+		}
+
+		img{
+			height: 200px;
+			width: 200px;
+		}
+
+		#imageListId
+		{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		}
+		#imageListId div
+		{
+			margin: 0 4px 4px 4px;
+			padding: 0.4em;			
+			display: inline-block;
+		}
+		.listitemClass
+		{
+			border: 1px solid #006400;
+			width: 350px;	
+		}
+		.height{
+			height: 10px;
+		}
+	</style>
+		
+	<script>
+		$(function() {
+			$( "#imageListId" ).sortable({
+			update: function(event, ui) {
+				getIdsOfImages();
+			}		
+			});
+		});
+		
+		function getIdsOfImages() {
+			var values = [];
+			$('.listitemClass').each(function (index) {
+				values.push($(this).attr("id")
+						.replace("imageNo", ""));
+			});
+			
+			$('#outputvalues').val(values);
+		}
+	</script>
+</head>
+	
+<body>
+	<b>Drag and drop images by Yuvraj Singh</b>
+	
+	<div class="height"></div><br>
+	
+	<div id = "imageListId">
+		<div id="imageNo1" class = "listitemClass">
+			<img src="https://www.omnicoreagency.com/wp-content/uploads/2018/09/Instagram-Logo-PNG-2018.png" alt="">
+		</div>
+		
+		<div id="imageNo2" class = "listitemClass">
+			<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Search_logo.max-200x200.png" alt="">
+		</div>
+
+		<div id="imageNo3" class = "listitemClass">
+			<img src="https://www.freepnglogos.com/uploads/whatsapp-transparent-logo-20.png" alt="">
+		</div>
+
+		<div id="imageNo4" class = "listitemClass">
+			<img src="https://www.freeiconspng.com/uploads/youtube-play-logo-png-5.png" alt="">
+		</div>
+
+		<div id="imageNo5" class = "listitemClass">
+			<img src="https://www.freepnglogos.com/uploads/tik-tok-logo-png/tik-tok-musical-download-for-android-iphone-enjoy-13.png" alt="">
+		</div>
+
+		<div id="imageNo6" class = "listitemClass">
+			<img src="https://cfl.dropboxstatic.com/static/metaserver/static/images/logo_catalog/dropbox_webclip_200_vis.png" alt="">
+		</div>
+	</div>
+</body>
+
+</html>
+
+
+
